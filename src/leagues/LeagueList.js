@@ -44,22 +44,29 @@ class LeagueList extends Component {
     return (
       <div>
         <Typography
-          variant="h4"
-          color="inherit"
+          variant='h4'
+          color='inherit'
           style={{ marginBottom: '1rem' }}
         >
           Leagues
         </Typography>
 
         {!this.state.loading ? (
-          <League leagues={this.state.leagues} />
+          <React.Fragment>
+            <League leagues={this.state.leagues} />
+            <Pagination
+              page={this.state.page}
+              count={totalPage}
+              style={{
+                marginTop: '2rem',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+              onChange={this.changePage}
+            />
+          </React.Fragment>
         ) : (
-          <Pagination
-            page={this.state.page}
-            count={totalPage}
-            style={{ marginTop: '2rem' }}
-            onChange={this.changePage}
-          />
+          ''
         )}
       </div>
     );

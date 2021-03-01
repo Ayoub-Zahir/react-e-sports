@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Typography,
-  Avatar,
-  Card,
-  CardContent,
-  CardActions,
-  Button,
-} from '@material-ui/core';
+import { Typography, Avatar } from '@material-ui/core';
 import TeamAPI from './TeamAPI';
 
 export default class TeamDetails extends Component {
@@ -36,46 +29,25 @@ export default class TeamDetails extends Component {
       !this.state.error && !this.state.loading ? (
         <div>
           <Avatar
-            alt="Remy Sharp"
+            alt='Remy Sharp'
             src={this.state.team.image_url}
             style={{ width: 200, height: 200, margin: '0 auto' }}
           />
-
           <Typography
-            variant="h4"
-            color="inherit"
+            variant='h4'
+            color='inherit'
             gutterBottom
             style={{ marginTop: '1rem' }}
           >
             {this.state.team.name}
           </Typography>
-
-          <Typography variant="subtitle1" gutterBottom>
+          <Typography variant='subtitle1' gutterBottom>
             Game : {this.state.team.current_videogame.name}
           </Typography>
-
-              <Card
-                variant="outlined"
-                style={{ marginBottom: '1rem' }}
-              >
-                <CardContent>
-                {this.state.team.series.map((serie) => {
-            
-            return ()}
-                  <Typography variant="h5" gutterBottom>
-                    {serie.full_name}
-                  </Typography>
-                  <Typography variant="h6" color="textSecondary" gutterBottom>
-                    From : {serie.begin_at} --To : {serie.end_at}
-                  </Typography>
-                </CardContent>
-
-              </Card>
-            );
-          })}
+          🎮
         </div>
       ) : (
-        <Typography variant="h4" color="error" style={{ marginBottom: '1rem' }}>
+        <Typography variant='h4' color='error' style={{ marginBottom: '1rem' }}>
           {this.state.error}
         </Typography>
       );

@@ -44,22 +44,29 @@ class TeamList extends Component {
     return (
       <div>
         <Typography
-          variant="h4"
-          color="inherit"
+          variant='h4'
+          color='inherit'
           style={{ marginBottom: '1rem' }}
         >
           Teams
         </Typography>
 
         {!this.state.loading ? (
-          <Team teams={this.state.teams} />
+          <React.Fragment>
+            <Team teams={this.state.teams} />
+            <Pagination
+              page={this.state.page}
+              count={totalPage}
+              style={{
+                marginTop: '2rem',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+              onChange={this.changePage}
+            />
+          </React.Fragment>
         ) : (
-          <Pagination
-            page={this.state.page}
-            count={totalPage}
-            style={{ marginTop: '2rem' }}
-            onChange={this.changePage}
-          />
+          ''
         )}
       </div>
     );
